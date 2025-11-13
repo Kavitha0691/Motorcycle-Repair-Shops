@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "import-data": "tsx scripts/import-csv-to-supabase.ts"
+    "import-data": "tsx scripts/import-csv-to-supabase.ts",
+    "verify-data": "tsx scripts/verify-data.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.81.1",

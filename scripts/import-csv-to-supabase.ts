@@ -107,10 +107,22 @@ async function importCSV() {
       });
 
       // Transform the data
+      const city = parseValue(record.city) as string;
+      const name = parseValue(record.name) as string;
+      const address = parseValue(record.address) as string;
+      const place_id = record.place_id?.trim();
+
+      // Skip records with missing required fields
+      if (!city || !name || !address || !place_id) {
+        console.warn(`Line ${i + 1}: Skipping record with missing required fields (city, name, address, or place_id)`);
+        errorCount++;
+        continue;
+      }
+
       const transformedRecord = {
-        city: parseValue(record.city) as string,
-        name: parseValue(record.name) as string,
-        address: parseValue(record.address) as string,
+        city,
+        name,
+        address,
         rating: parseValue(record.rating),
         reviews_count: parseInt(record.reviews_count) || 0,
         phone: parseValue(record.phone),
@@ -119,7 +131,7 @@ async function importCSV() {
         hours: parseValue(record.hours),
         latitude: parseValue(record.latitude),
         longitude: parseValue(record.longitude),
-        place_id: record.place_id,
+        place_id,
         scraped_at: record.scraped_at ? new Date(record.scraped_at).toISOString() : null,
       };
 
