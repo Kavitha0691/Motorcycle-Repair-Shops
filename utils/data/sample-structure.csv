@@ -1,4 +1,0 @@
-name,address,city,country,postal_code,phone,email,website,services,latitude,longitude
-BMW Motorrad Munich,Hauptstraße 123,Munich,Germany,80331,+49 89 1234567,info@bmw-repair.de,https://example.com,"Engine Repair,Tire Service,Maintenance",48.1351,11.582
-Ducati Service Paris,Rue de Rivoli 45,Paris,France,75001,+33 1 4567890,contact@ducati-paris.fr,https://example.com,"Brake Service,Tire Service,Customization",48.8566,2.3522
-Harley Workshop Rome,Via Roma 88,Rome,Italy,00184,+39 06 7654321,info@harley-rome.it,https://example.com,"Engine Repair,Maintenance,Parts",41.9028,12.4964
