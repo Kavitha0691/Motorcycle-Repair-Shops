@@ -36,12 +36,15 @@ export default function Home() {
   const fetchShops = async () => {
     try {
       setLoading(true);
-      const { data, error } = await supabase
+      const { data, error, count } = await supabase
         .from('motorcycle_shops')
-        .select('*')
-        .order('rating', { ascending: false, nullsFirst: false });
+        .select('*', { count: 'exact' })
+        .order('rating', { ascending: false, nullsFirst: false })
+        .limit(10000); // Fetch up to 10,000 records
 
       if (error) throw error;
+
+      console.log(`Fetched ${data?.length} shops from Supabase`);
 
       setShops(data || []);
       setFilteredShops(data || []);
